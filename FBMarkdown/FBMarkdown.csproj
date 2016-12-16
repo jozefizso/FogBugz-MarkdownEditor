@@ -66,10 +66,25 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="static\css\simplemde.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="static\js\simplemde.debug.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="static\js\simplemde.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="static\js\simplemde.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
+    <Content Include="static\css\simplemde.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="static\js\FBMarkdown.js">
       <DependentUpon>FBMarkdown.ts</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="static\js\FBMarkdown.js.map">
       <DependentUpon>FBMarkdown.ts</DependentUpon>
@@ -77,6 +92,8 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="static\js\FBMarkdown.ts" />
+    <TypeScriptCompile Include="static\js\typings\jquery.d.ts" />
+    <TypeScriptCompile Include="static\js\typings\simplemde.d.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" />

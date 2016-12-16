@@ -1,4 +1,5 @@
 ﻿/// <reference path="typings/jquery.d.ts" />
+/// <reference path="typings/simplemde.d.ts" />
 
 $(function () {
 
@@ -26,6 +27,12 @@ $(function () {
       spanPlain.toggleClass("bold", false);
       spanHTML.toggleClass("bold", false);
       spanMD.toggleClass("bold", true);
+
+      var simplemde = new SimpleMDE({
+        element: $("#sEventEdit")[0],
+        spellChecker: false
+      });
+      simplemde.value("# Markdown\n* Hello World");
     });
   });
 });
