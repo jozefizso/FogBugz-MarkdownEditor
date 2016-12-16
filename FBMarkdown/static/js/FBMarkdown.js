@@ -1,3 +1,4 @@
+/// <reference path="typings/jquery.d.ts" />
 $(function () {
     $(window).bind("BugViewChanging", function () {
         console.log('Markdown: event BugViewChanging');
