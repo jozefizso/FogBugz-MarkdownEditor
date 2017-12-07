@@ -18,7 +18,11 @@ namespace FBMarkdown
         public CCSSInfo CSSInfo()
         {
             var js = new CCSSInfo();
-            js.rgsStaticFiles = new[] { "css/simplemde.css" };
+            js.rgsStaticFiles = new[]
+            {
+                "css/md.css",
+                "css/simplemde.css"
+            };
             return js;
         }
 

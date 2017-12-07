@@ -1,6 +1,19 @@
 /// <reference path="typings/jquery.d.ts" />
 /// <reference path="typings/simplemde.d.ts" />
 $(function () {
+    $("#bugviewContainerEdit").on("dragenter", function (e) {
+        $(e.currentTarget).addClass("dragover");
+    }).on("dragleave", function (e) {
+        $(e.currentTarget).removeClass("dragover");
+    }).on("dragover", function (e) {
+        e.preventDefault();
+    }).on("drop", function (e) {
+        e.preventDefault();
+        var x = e.originalEvent;
+        if (x.dataTransfer.files) {
+            console.log("Dragged %i files.", x.dataTransfer.files.length);
+        }
+    });
     $(window).bind("BugViewChanging", function () {
         console.log('Markdown: event BugViewChanging');
     });

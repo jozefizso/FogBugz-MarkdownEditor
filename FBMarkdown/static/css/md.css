@@ -1,0 +1,8 @@
+/*
+ * Fogbugz Markdown editor plugin
+*/
+
+#bugviewContainerEdit.dragover .bugevent {
+  box-shadow: #8BC34A 0 0 3px;
+  border-color: #8BC34A;
+}

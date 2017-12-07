@@ -3,6 +3,21 @@
 
 $(function () {
 
+    $("#bugviewContainerEdit").on("dragenter", (e) => {
+        $(e.currentTarget).addClass("dragover");
+    }).on("dragleave", (e) => {
+        $(e.currentTarget).removeClass("dragover");
+    }).on("dragover", (e) => {
+        e.preventDefault();
+    }).on("drop", (e) => {
+        e.preventDefault();
+        let x = <DragEvent>e.originalEvent;
+
+        if (x.dataTransfer.files) {
+            console.log("Dragged %i files.", x.dataTransfer.files.length);
+        }
+    });
+
   $(window).bind("BugViewChanging", function () {
     console.log('Markdown: event BugViewChanging');
   });
