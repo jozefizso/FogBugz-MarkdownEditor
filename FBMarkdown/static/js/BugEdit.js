@@ -19,6 +19,10 @@ var DragDropAttach = {
             return;
         }
 
+        if (console.info) {
+            console.info("Initializing custom implementation of DragDropAttach handler from FBMarkdown plugin.");
+        }
+
         $(document.body).bind("dragstart", DragDropAttach.disable);
         $(document.body).bind("dragend", DragDropAttach.end);
         $(document.body).bind("dragenter", DragDropAttach.enter);
@@ -68,12 +72,13 @@ var DragDropAttach = {
 
         if (DragDropAttach.fEnabled) {
             function is_zoomed() {
-                var actual = getActualStyle(el, "font-size");
-                if (window.macintosh) {
-                    return actual !== "11px";
-                }
+                ////var actual = getActualStyle(el, "font-size");
+                ////if (window.macintosh) {
+                ////    return actual !== "11px";
+                ////}
 
-                return actual !== "13px";
+                ////return actual !== "13px";
+                return false;
             }
 
             // If the page has been zoomed at all, don't allow drag'n'drop.  WebKit does not
