@@ -27,7 +27,7 @@
     <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
     <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
     <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
-    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <TypeScriptModuleKind>None</TypeScriptModuleKind>
     <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
     <TypeScriptOutFile />
     <TypeScriptOutDir />
@@ -73,6 +73,7 @@
     <Content Include="static\css\simplemde.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="static\js\BugEdit.js" />
     <Content Include="static\js\simplemde.debug.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -97,6 +98,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="static\js\FBMarkdown.ts" />
     <TypeScriptCompile Include="static\js\typings\jquery.d.ts" />
+    <TypeScriptCompile Include="static\js\typings\fogbugz.d.ts" />
     <TypeScriptCompile Include="static\js\typings\simplemde.d.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

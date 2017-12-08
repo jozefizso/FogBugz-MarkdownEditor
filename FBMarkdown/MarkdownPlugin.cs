@@ -31,6 +31,7 @@ namespace FBMarkdown
             var js = new CJSInfo();
             js.rgsStaticFiles = new[]
             {
+                "js/BugEdit.js",
                 "js/simplemde.debug.js",
                 "js/FBMarkdown.js"
             };
