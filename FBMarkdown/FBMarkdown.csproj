@@ -93,6 +93,7 @@
       <DependentUpon>FBMarkdown.ts</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="static\js\.editorconfig" />
     <None Include="static\js\FBMarkdown.js.map">
       <DependentUpon>FBMarkdown.ts</DependentUpon>
     </None>
@@ -100,7 +101,6 @@
   <ItemGroup>
     <TypeScriptCompile Include="static\js\FBMarkdown.ts" />
     <TypeScriptCompile Include="static\js\typings\jquery.d.ts" />
-    <TypeScriptCompile Include="static\js\typings\fogbugz.d.ts" />
     <TypeScriptCompile Include="static\js\typings\simplemde.d.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

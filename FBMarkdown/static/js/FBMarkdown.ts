@@ -1,22 +1,9 @@
 ﻿/// <reference path="typings/jquery.d.ts" />
 /// <reference path="typings/simplemde.d.ts" />
 
-$(function () {
+$(function() {
 
-    $("#bugviewContainerEdit").on("dragenter", (e) => {
-        $(e.currentTarget).addClass("dragover");
-    }).on("dragleave", (e) => {
-        $(e.currentTarget).removeClass("dragover");
-    }).on("dragover", (e) => {
-        e.preventDefault();
-    }).on("drop", (e) => {
-        e.preventDefault();
-        let x = <DragEvent>e.originalEvent;
-
-        if (x.dataTransfer.files) {
-            console.log("Dragged %i files.", x.dataTransfer.files.length);
-        }
-    });
+  var gEditor = null;
 
   $(window).bind("BugViewChanging", function () {
     console.log('Markdown: event BugViewChanging');
@@ -33,8 +20,25 @@ $(function () {
       .attr("title", "Markdown Editor")
       .appendTo(divModeSelector);
 
-    let spanHTML = spanMD.prev().css("margin-right", 8).click(function () { spanMD.toggleClass("bold", false); });
-    let spanPlain = spanHTML.prev().click(function () { spanMD.toggleClass("bold", false); });
+    let spanHTML = spanMD.prev().css("margin-right", 8).click(function () {
+      if (gEditor) {
+          var text = gEditor.value();
+          var html = gEditor.markdown(text);
+          gEditor.toTextArea();
+          gEditor = null;
+
+          $("#sEventEdit").val(html).hide();
+      }
+
+      spanMD.toggleClass("bold", false);
+    });
+    let spanPlain = spanHTML.prev().click(function () {
+      if (gEditor) {
+        gEditor.toTextArea();
+        gEditor = null;
+      }
+      spanMD.toggleClass("bold", false);
+    });
 
     spanMD.click(function () {
       console.log('Activating Markdown editor...');
@@ -43,11 +47,15 @@ $(function () {
       spanHTML.toggleClass("bold", false);
       spanMD.toggleClass("bold", true);
 
-      var simplemde = new SimpleMDE({
-        element: $("#sEventEdit")[0],
-        spellChecker: false
-      });
-      simplemde.value("# Markdown\n* Hello World");
+      if (!gEditor) {
+          var simplemde = new SimpleMDE({
+              element: $("#sEventEdit")[0],
+              spellChecker: false,
+              autofocus: true
+          });
+
+          gEditor = simplemde;
+      }
     });
   });
 });
