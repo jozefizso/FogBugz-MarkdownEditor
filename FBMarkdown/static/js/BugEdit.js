@@ -27,6 +27,24 @@ var DragDropAttach = {
         $(document.body).bind("dragend", DragDropAttach.end);
         $(document.body).bind("dragenter", DragDropAttach.enter);
         $(document.body).bind("dragleave", DragDropAttach.leave);
+
+        window.addEventListener("dragover", function (e) {
+            e = e || event;
+            // files will be droped over to input[type=file]
+            if (e.target.tagName !== "INPUT") {
+                console.log("Cancelling dragover event.");
+                e.preventDefault();
+            }
+        }, false);
+        window.addEventListener("drop", function (e) {
+            e = e || event;
+            // files will be droped over to input[type=file]
+            if (e.target.tagName !== "INPUT") {
+                console.log("Cancelling drop event.");
+                e.preventDefault();
+            }
+        }, false);
+
     },
 
     hoverTarget: function (el, fHover) {
