@@ -6,3 +6,35 @@
   box-shadow: #8BC34A 0 0 3px;
   border-color: #8BC34A;
 }
+
+.editor-toolbar {
+    margin-right: -4px;
+    border: none;
+    padding: 0 4px;
+    opacity: 1;
+}
+.editor-toolbar:hover, .editor-wrapper input.title:focus, .editor-wrapper input.title:hover {
+  opacity: 1;
+}
+
+.editor-toolbar:before {
+    margin-bottom: 4px;
+}
+
+.editor-toolbar:after {
+    margin-top: 4px;
+}
+
+.editor-toolbar a {
+    width: 24px;
+    height: 24px;
+}
+.editor-toolbar a:before {
+    line-height: 24px;
+}
+
+.editor.wideTextareaWrapper .CodeMirror {
+    margin-right: -4px;
+    border: none;
+    border-top: 1px solid #ddd;
+}

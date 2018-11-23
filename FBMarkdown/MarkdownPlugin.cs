@@ -20,8 +20,8 @@ namespace FBMarkdown
             var js = new CCSSInfo();
             js.rgsStaticFiles = new[]
             {
-                "css/md.css",
-                "css/simplemde.css"
+                "css/simplemde.css",
+                "css/md.css"
             };
             return js;
         }

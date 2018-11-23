@@ -51,6 +51,7 @@ $(function() {
           var simplemde = new SimpleMDE({
               element: $("#sEventEdit")[0],
               spellChecker: false,
+              status: false,
               autofocus: true
           });
 
